@@ -9,4 +9,5 @@ type Request struct {
 	Host       string
 	RequestURI string
 	RemoteAddr string
+	Query      string
 }

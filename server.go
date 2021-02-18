@@ -94,11 +94,14 @@ func (srv *Server) serve(rw net.Conn) {
 		return
 	}
 
+	query, _ := url.PathUnescape(requestUrl.RawQuery)
+
 	request := &Request{
 		URL:        requestUrl,
 		Host:       requestUrl.Host,
 		RequestURI: requestUrl.Path,
-		RemoteAddr: rw.RemoteAddr().String()}
+		RemoteAddr: rw.RemoteAddr().String(),
+		Query:      query}
 
 	response := &response{
 		rw:     rw,
