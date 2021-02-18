@@ -11,13 +11,13 @@ func (mux *ServeMux) Handle(pattern string, handler Handler) {
 	defer mux.mu.Unlock()
 
 	if pattern == "" {
-		panic("http: invalid pattern")
+		panic("gemini: invalid pattern")
 	}
 	if handler == nil {
-		panic("http: nil handler")
+		panic("gemini: nil handler")
 	}
 	if _, exist := mux.m[pattern]; exist {
-		panic("http: multiple registrations for " + pattern)
+		panic("gemini: multiple registrations for " + pattern)
 	}
 
 	if mux.m == nil {

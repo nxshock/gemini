@@ -87,7 +87,7 @@ func Redirect(w ResponseWriter, r *Request, url string, code uint8) {
 				oldpath = "/"
 			}
 
-			// no leading http://server
+			// no leading gemini://server
 			if url == "" || url[0] != '/' {
 				// make relative path absolute
 				olddir, _ := path.Split(oldpath)
@@ -118,7 +118,7 @@ func NotFoundHandler() Handler { return HandlerFunc(NotFound) }
 
 func NotFound(w ResponseWriter, r *Request) { Error(w, "404 page not found", StatusNotFound) }
 
-// Error replies to the request with the specified error message and HTTP code.
+// Error replies to the request with the specified error message and Gemini code.
 // It does not otherwise end the request; the caller should ensure no further
 // writes are done to w.
 // The error message should be plain text.

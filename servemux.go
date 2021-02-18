@@ -20,7 +20,7 @@ type muxEntry struct {
 
 func (mux *ServeMux) HandleFunc(pattern string, handler func(ResponseWriter, *Request)) {
 	if handler == nil {
-		panic("http: nil handler")
+		panic("gemini: nil handler")
 	}
 	mux.Handle(pattern, HandlerFunc(handler))
 }
